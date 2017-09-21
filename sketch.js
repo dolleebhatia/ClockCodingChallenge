@@ -4,16 +4,14 @@ var gearSe2;
 var gearMn1;
 var gearMn2;
 var img; //watch image
-var img2; //seconds hand logo
 var c;
 
 function mousePressed(){
-  c = mouseX; //debug
+  c = mouseX;
 }
 
 function preload(){
-  img = loadImage('hb2.png');
-  img2 = loadImage('seconds2.png')
+  img = loadImage('hb.png');
 }
 
 function setup(){
@@ -45,39 +43,33 @@ push();
   //Draw gears
   strokeWeight(1);
   stroke(200,200);
-  gearSe1 = new gear(0,0,120,40,29, -end1*360);
+  gearSe1 = new gear(0,0,60,40,30, -end1*360);
   fill(0);
   gearSe1.update();
-  gearSe2 = new gear(-56,-68,120,50,43, end1*360);
+  gearSe2 = new gear(-56,-68,60,50,32, end1*360);
   gearSe2.update();
 
 
   stroke(200,200);
   fill(0,255);
+
   ellipse(0,0,15,15);
   ellipse(-56,-68,80,80);
-  stroke(200,180);
-  rect(-56,-108,3,79);
-  push();
-  rotate(70);
-  rect(-84,68,3,-50);
-  pop();
-  push();
-  rotate(120);
-  rect(-30,44,3,79);
-  pop();
-  fill(192);
-  ellipse(-56,-68,30,30);
-  noFill();
-  gearMn2 = new gear(41,52,240,28,27,end1*360);
-  gearMn1 = new gear(41,52,240,23,20,mn*360);
+  ellipse(-56,-68,15,15);
+
+  fill(10,180);
+  gearMn1 = new gear(0,0,120,100,90,mn*360);
+  gearMn2 = new gear(41,52,60,30,10,end1*360);
+
+
+
   stroke(192,192,192);
-  gearMn1.update();
+  //gearMn1.update();
   gearMn2.update();
 
   //noStroke();
   fill(0,255);
-  //ellipse(41,52,46,46);
+  ellipse(41,52,46,46);
 
 
 
@@ -88,15 +80,14 @@ push();
     fill(255,255,0);
     rectMode(CENTER);
     rect (148,0,10,3)
+    //Figure out a way to add these positions to an array for numbers.
     if (i==3){
       //noFill();
-      stroke(192,192,192);
-      noFill();
-      strokeWeight(1);
-      ellipse(120,1,34,34);
-      textSize(17);
-      noStroke();
-      fill(192,190);
+      fill(192,192,192,192);
+      stroke(0);
+      ellipse(120,0,30,30);
+      textSize(18);
+      fill(255);
       text(dt, 110, 7);
     }
     rotate(30);
@@ -124,10 +115,13 @@ push();
     strokeWeight(1);
     stroke(255,0,0);
     rectMode(CENTER);
+  //  rect(105,0,43,7);
+    //rect(-60,0,0,10);
+    //line(75,-2,75,2);
     stroke(255,0,0);
     strokeWeight(2);
-    line(-50,0,130,0);
-    image(img2, -63 , 0, 25, 25);
+    line(0,0,130,0);
+
 
     strokeWeight(1);
     stroke(255,0,0);
